@@ -3,13 +3,6 @@
 <mujoco>
     <option timestep="0.005" />
     <worldbody>
-            <body name="robot" pos="0 0 1.2">
-            <joint axis="1 0 0" damping="0.1" name="slide0" pos="0 0 0" type="slide"/>
-            <joint axis="0 1 0" damping="0.1" name="slide1" pos="0 0 0" type="slide"/>
-            <joint axis="0 0 1" damping="1" name="slide2" pos="0 0 0" type="slide"/>
-            <geom mass="1.0" pos="0 0 0" rgba="1 0 0 1" size="0.15" type="sphere"/>
-			<camera euler="0 0 0" fovy="40" name="rgb" pos="0 0 2.5"></camera>
-        </body>
         <body name="box" pos="0 0 10">
             <geom mass="1" size="0.15 0.15 0.15" type="box"/>
             <joint name='box_z' type='slide' axis='0 0 1' limited='false' damping='.01'/>
@@ -21,9 +14,4 @@
             <geom condim="3" size="5.0 5.0 0.02" rgba="0 1 0 1" type="box"/>
         </body>
     </worldbody>
-    
-    <actuator>
-        <motor gear="2000.0" joint="slide0"/>
-        <motor gear="2000.0" joint="slide1"/>
-    </actuator>
 </mujoco>
