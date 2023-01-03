@@ -8,6 +8,7 @@ sim = MjSim(model)
 viewer = MjViewer(sim)
 while True:
 	viewer.render()
+	sim.step()
 #t = 0
 #while True:
 #    sim.data.ctrl[0] = math.cos(t / 10.) * 0.01
