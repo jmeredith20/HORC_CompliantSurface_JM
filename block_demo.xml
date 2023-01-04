@@ -3,8 +3,6 @@
 <mujoco>
     <option timestep="0.005" />
     <worldbody>
-	    <light directional='false' diffuse='.8 .8 .8' specular='0.3 0.3 0.3' pos='0 0 4.0' dir='0 -.15 -1'/>
-			<geom name='floor' pos='0 -1 0' size='1.5 3 .125' type='plane' material="MatPlane" condim='3'/>
         <body name="box" pos="0 0 10">
             <geom mass="1" size="0.15 0.15 0.15" type="box"/>
             <joint name='box_z' type='slide' axis='0 0 1' limited='false' damping='.01'/>
