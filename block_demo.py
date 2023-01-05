@@ -21,7 +21,7 @@ while True:
 	velocity = sim.data.get_body_xvelp("box")[2]
 	acceleration = 0
 	blockData[i] = [[position], [velocity], [acceleration]]
-	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'Position: {[[round(position,3)], [round(velocity,3)], [round(acceleration,3)]]}')
+	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, A]: {[[round(position,3)], [round(velocity,3)], [round(acceleration,3)]]}')
 	viewer.render()
 	sim.step()
 	if(i == stepLimit):
