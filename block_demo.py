@@ -6,10 +6,14 @@ import os
 model = load_model_from_path("./block_demo.xml")
 sim = MjSim(model)
 viewer = MjViewer(sim)
+i = 0
 while True:
 	viewer.render()
 	sim.step()
-
+	if(i == 500):
+		sim.reset();
+		i = 0
+	i += 1
 #t = 0
 #while True:
 #    sim.data.ctrl[0] = math.cos(t / 10.) * 0.01
