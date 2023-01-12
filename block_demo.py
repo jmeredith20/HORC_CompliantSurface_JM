@@ -12,16 +12,16 @@ model = load_model_from_path("./block_demo.xml")
 
 sim = MjSim(model)
 viewer = MjViewer(sim)
-stepLimit = 1500
+stepLimit = 500000
 blockData = [[None],[None],[None]] * stepLimit
-dataTesting = True
+dataTesting = False
 i = 0
 while True:
 	position = sim.data.get_body_xpos("box")[2]
 	velocity = sim.data.get_body_xvelp("box")[2]
-	acceleration = 0
-	blockData[i] = [[position], [velocity], [acceleration]]
-	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, A]: {[[round(position,3)], [round(velocity,3)], [round(acceleration,3)]]}')
+	force = 0
+	blockData[i] = [[position], [velocity], [force]]
+	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, F]: {[[round(position,3)], [round(velocity,3)], [round(force,3)]]}')
 	viewer.render()
 	sim.step()
 	if(i == stepLimit):
@@ -30,11 +30,13 @@ while True:
 		# multiple times, set dataTesting = False for an easy loop
 		if(dataTesting):
 			with open('testData.txt','w') as f:
-				f.write("Column 1: Position	Column 2: Velocity	Column 3: Acceleration\n")
+				f.write("Column 1: Position	Column 2: Velocity	Column 3: Force (incomplete)\n")
 				for line in blockData[0:stepLimit + 1]:
 					f.write(f"{line}\n")
 			break
 		else:
 			sim.reset()
 			i = 0
-	i += 1	
+	i += 1
+	
+	
