@@ -17,8 +17,8 @@ blockData = [[None],[None],[None]] * stepLimit
 dataTesting = False
 i = 0
 while True:
-	position = sim.data.get_body_xpos("box")[2]
-	velocity = sim.data.get_body_xvelp("box")[2]
+	position = sim.data.get_body_xpos("block")[2]
+	velocity = sim.data.get_body_xvelp("block")[2]
 	force = 0
 	blockData[i] = [[position], [velocity], [force]]
 	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, F]: {[[round(position,3)], [round(velocity,3)], [round(force,3)]]}')

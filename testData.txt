@@ -1,4 +1,4 @@
-Column 1: Position	Column 2: Velocity	Column 3: Acceleration
+Column 1: Position	Column 2: Velocity	Column 3: Force (incomplete)
 [[10.0], [0.0], [0]]
 [[10.0], [-0.04904754762261886], [0]]
 [[9.999754762261887], [-0.09809264299046933], [0]]

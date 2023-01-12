@@ -13,8 +13,8 @@
     <worldbody>
     	<!--Creates a "box" that is placed at initial position pos="x y z". The slide joints outlined below allow the
     	box to move in the x, y, and z directions when force is applied to the object-->
-        <body name="box" pos="0 0 10">
-            <geom mass ="1" size="1 1 1" type="box"/>
+        <body name="block" pos="0 0 10">
+            <geom mass ="100" size="1 1 1" type="box"/>
             <joint name='box_z' type='slide' axis='0 0 1' limited='false' damping='.01'/>
 	    <joint name='box_y' type='slide' axis='0 1 0' limited='false' damping='.01'/>
 	    <joint name='box_x' type='slide' axis='1 0 0' limited='false' damping='.01'/>
