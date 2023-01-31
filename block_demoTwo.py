@@ -12,27 +12,45 @@ model = load_model_from_path("./block_demo.xml")
 
 sim = MjSim(model)
 viewer = MjViewer(sim)
-stepLimit = 50000
-blockData = [[None],[None],[None]] * stepLimit
-dataTesting = False
+dataTesting = True
 i = 0
+posData = []
+velData = []
+timeData = []
 while True:
 	position = sim.data.get_body_xpos("block")[2]
 	velocity = sim.data.get_body_xvelp("block")[2]
 	time = sim.data.time
-	blockData[i] = [[position], [velocity], [time]]
+	
+	posData.append(position)
+	velData.append(velocity)
+	timeData.append(time)
+	
 	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, T]: {[[round(position,5)], [round(velocity,5)], [round(time, 5)]]}')
 	viewer.render()
 	sim.step()
-	if(i == stepLimit):
+	
+	if(round(velocity,2) == 0 and sim.data.time > 1):
 		# If you are working on making sure the data works properly, set dataTesting = True
 		# If you are testing to make sure the simulation is running properly and need to run it
 		# multiple times, set dataTesting = False for an easy loop
 		if(dataTesting):
-			with open('testData.txt','w') as f:
-				f.write("Column 1: Position	Column 2: Velocity	Column 3: Force (incomplete)\n")
-				for line in blockData[0:stepLimit + 1]:
+			
+			with open('posData.txt','w') as f:
+				f.write("Position:\n")
+				for line in posData[0:i + 1]:
 					f.write(f"{line}\n")
+			
+			with open('velData.txt', 'w') as f:
+				f.write("Velocity:\n")
+				for line in velData[0:i + 1]:
+					f.write(f"{line}\n")
+					
+			with open('timeData.txt','w') as f:
+				f.write("Time:\n")
+				for line in timeData[0:i + 1]:
+					f.write(f"{line}\n")
+			
 			break
 		else:
 			sim.reset()

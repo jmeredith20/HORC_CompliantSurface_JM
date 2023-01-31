@@ -24,7 +24,14 @@
         <body name="floor" pos="0 0 0.025">
             <!--solref="-stiffness -damping" is what gives the floor a bouncy property. Both of these 
             quantites can be tweaked but must remain negative or 0 for the program to run properly-->
-            <geom condim="3" size="5.0 5.0 5.0" rgba="0 1 0 1" type="box" solref="-10 -10"/>
+            
+            <geom condim="3" size="5.0 5.0 5.0" rgba="0 1 0 1" type="box" solref="-10 -120"/>
+            
+            <!--Similar to a graph of a controller (it basically is a controller, actually), a lower stiffness magnitude
+            will lead to a higher final displacement magnitude, and a higher damping magnitude will lead to a smaller overshoot
+            (and generally a faster settling time as well). If you increase the damping too much, the system will become unstable
+            and the block will bounce infinitely.-->
+            
         </body>
         
     </worldbody>
