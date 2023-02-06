@@ -5,7 +5,7 @@
 <?xml version="1.0" ?>
 <mujoco>
 
-    <option timestep="0.005" />
+    <option timestep="0.0001" />
     <!--Gravity is automatically set to simulate Earth's gravity. To change this, uncomment the line below and change
     the gravitational force vector as desired. Gravity vector is in format: option gravity="xForce yForce zForce"-->
     <!--option gravity="0 0 -9.81"/-->
@@ -15,9 +15,9 @@
     	box to move in the x, y, and z directions when force is applied to the object-->
         <body name="block" pos="0 0 10">
             <geom mass ="1" size="1 1 1" type="box"/>
-            <joint name='box_z' type='slide' axis='0 0 1' limited='false' damping='.01'/>
-	    <joint name='box_y' type='slide' axis='0 1 0' limited='false' damping='.01'/>
-	    <joint name='box_x' type='slide' axis='1 0 0' limited='false' damping='.01'/>
+            <joint name='box_z' type='slide' axis='0 0 1' limited='false' damping='0'/>
+	    <joint name='box_y' type='slide' axis='0 1 0' limited='false' damping='0'/>
+	    <joint name='box_x' type='slide' axis='1 0 0' limited='false' damping='0'/>
         </body>
         
         <!--Creates the "floor" object at pos="x y z". The floor should be stationary, therefore no joints were added.-->
@@ -25,7 +25,7 @@
             <!--solref="-stiffness -damping" is what gives the floor a bouncy property. Both of these 
             quantites can be tweaked but must remain negative or 0 for the program to run properly-->
             
-            <geom condim="3" size="5.0 5.0 5.0" rgba="0 1 0 1" type="box" solref="-1 -20"/>
+            <geom condim="3" size="5.0 5.0 5.0" rgba="0 1 0 1" type="box" solref="-100 0"/>
             
             <!--Similar to a graph of a controller (it basically is a controller, actually), a lower stiffness magnitude
             will lead to a higher final displacement magnitude, and a higher damping magnitude will lead to a smaller overshoot
