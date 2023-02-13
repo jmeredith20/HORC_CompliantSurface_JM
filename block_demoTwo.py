@@ -15,7 +15,7 @@ viewer = MjViewer(sim)
 dataTesting = True
 
 i = 0
-stepLimit = 300000
+stepLimit = 600000	# 1 minute
 posData = []
 velData = []
 timeData = []
@@ -29,7 +29,7 @@ while True:
 	velData.append(velocity)
 	timeData.append(time)
 	
-	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, T]: {[[round(position,5)], [round(velocity,5)], [round(time, 5)]]}')
+	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, T]: {[[round(position,5)], [round(velocity,8)], [round(time, 5)]]}')
 	viewer.render()
 	sim.step()
 	
@@ -41,8 +41,8 @@ while True:
 		if(dataTesting):
 			j = 0
 			pvt = [None] * i
-			with open('./trialData/stiff1/pvtDataOne.txt','w') as f:
-				f.write("Stiffness: -1\nDamping: -20\nPosition:	Velocity:	Time:\n")
+			with open('./trialData/stiff100/pvtDataOne.txt','w') as f:
+				f.write("Stiffness: -100\nDamping: -20\nPosition:	Velocity:	Time:\n")
 				for line in pvt[0:i + 1]:
 					f.write(f"{posData[j]}	{velData[j]}	{timeData[j]}\n")
 					j += 1
