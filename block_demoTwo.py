@@ -15,7 +15,7 @@ viewer = MjViewer(sim)
 dataTesting = True
 
 i = 0
-stepLimit = 600000	# 1 minute
+stepLimit = 600000	# 60 seconds
 posData = []
 velData = []
 timeData = []
@@ -23,13 +23,17 @@ timeData = []
 while True:
 	position = sim.data.get_body_xpos("block")[2]
 	velocity = sim.data.get_body_xvelp("block")[2]
+	mass = model.body_mass[1]
 	time = sim.data.time
+	
+	#print(model.body_mass[1])
+	#print(sim.data.gravity[3])
 	
 	posData.append(position)
 	velData.append(velocity)
 	timeData.append(time)
 	
-	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, T]: {[[round(position,5)], [round(velocity,8)], [round(time, 5)]]}')
+	viewer.add_marker(pos=np.array([3, 0, 3]), label=f'[P, V, M, T]: {[[round(position,5)], [round(velocity,8)], [mass], [round(time, 5)]]}')
 	viewer.render()
 	sim.step()
 	
@@ -41,8 +45,8 @@ while True:
 		if(dataTesting):
 			j = 0
 			pvt = [None] * i
-			with open('./trialData/stiff100/pvtDataOne.txt','w') as f:
-				f.write("Stiffness: -100\nDamping: -20\nPosition:	Velocity:	Time:\n")
+			with open('./trialData/stiff10/pvtDampDataThree.txt','w') as f:
+				f.write("Stiffness: -10\nDamping: -40\nMass: 1\nPosition:	Velocity:	Time:\n")
 				for line in pvt[0:i + 1]:
 					f.write(f"{posData[j]}	{velData[j]}	{timeData[j]}\n")
 					j += 1
