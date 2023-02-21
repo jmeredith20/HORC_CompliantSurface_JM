@@ -15,7 +15,7 @@
     	box to move in the x, y, and z directions when force is applied to the object-->
         <body name="block" pos="0 0 5">
         
-            <geom condim="1" size="1 1 1" mass="1" type="box"/>
+            <geom condim="1" size="1 1 1" mass="100000" type="box"/>
             <!--inertial pos="0.5 0.5 0.5" mass = "1" diaginertia='0.001666666 0.001666666 0.001666666'/-->
             <joint type="free" stiffness="0" damping="0" frictionloss="0" armature="0"/>
         </body>
@@ -25,7 +25,7 @@
             <!--solref="-stiffness -damping" is what gives the floor a bouncy property. Both of these 
             quantites can be tweaked but must remain negative or 0 for the program to run properly-->
             
-            <geom condim="3" mass="1" size="5.0 5.0 5.0" rgba="0 1 0 1" type="box" solref="-50 -40"/>
+            <geom condim="3" mass="1" size="5.0 5.0 5.0" rgba="0 1 0 1" type="box" solref="-10 -40"/>
             
             <!--Similar to a graph of a controller (it basically is a controller, actually), a lower stiffness magnitude
             will lead to a higher final displacement magnitude, and a higher damping magnitude will lead to a smaller overshoot

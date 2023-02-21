@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+# Author: Jacob Meredith (jmer@udel.edu)
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Stiffness = 100
+data1 = np.genfromtxt('./stiff100/pvtDataOne.txt',comments=';',skip_header=3)
+data2 = np.genfromtxt('./stiff100/pvtDataTwo.txt',comments=';',skip_header=3)
+data3 = np.genfromtxt('./stiff100/pvtDataThree.txt',comments=';',skip_header=3)
+
+pos1 = data1[9000:,0]     # position is column 1
+vel1 = data1[9000:,1]     # velocity is column 2
+time1 = data1[9000:,2]    # time is column 3
+
+pos2 = data2[9000:,0]     # position is column 1
+vel2 = data2[9000:,1]     # velocity is column 2
+time2 = data2[9000:,2]    # time is column 3
+
+pos3 = data3[9000:,0]     # position is column 1
+vel3 = data3[9000:,1]     # velocity is column 2
+time3 = data3[9000:,2]    # time is column 3
+
+plt.subplot(1,3,1)
+plt.xlabel('Time (s)')
+plt.ylabel('Position (m)')
+plt.title("Stiffness = 100")
+plt.plot(time1,pos1, 'r-', label = "Mass = 1 kg")
+plt.plot(time2,pos2, 'b-', label = "Mass = 100 kg")
+plt.plot(time3,pos3, 'g-', label = "Mass = 100000 kg")
+plt.legend()
+
+# Stiffness = 50
+data1 = np.genfromtxt('./stiff50/pvtDataOne.txt',comments=';',skip_header=3)
+data2 = np.genfromtxt('./stiff50/pvtDataTwo.txt',comments=';',skip_header=3)
+data3 = np.genfromtxt('./stiff50/pvtDataThree.txt',comments=';',skip_header=3)
+
+pos1 = data1[9000:,0]     # position is column 1
+vel1 = data1[9000:,1]     # velocity is column 2
+time1 = data1[9000:,2]    # time is column 3
+
+pos2 = data2[9000:,0]     # position is column 1
+vel2 = data2[9000:,1]     # velocity is column 2
+time2 = data2[9000:,2]    # time is column 3
+
+pos3 = data3[9000:,0]     # position is column 1
+vel3 = data3[9000:,1]     # velocity is column 2
+time3 = data3[9000:,2]    # time is column 3
+
+plt.subplot(1,3,2)
+plt.xlabel('Time (s)')
+plt.ylabel('Position (m)')
+plt.title("Stiffness = 50")
+plt.plot(time1,pos1, 'r-', label = "Mass = 1 kg")
+plt.plot(time2,pos2, 'b-', label = "Mass = 100 kg")
+plt.plot(time3,pos3, 'g-', label = "Mass = 100000 kg")
+plt.legend()
+
+# Stiffness = 10
+data1 = np.genfromtxt('./stiff10/pvtDataOne.txt',comments=';',skip_header=3)
+data2 = np.genfromtxt('./stiff10/pvtDataTwo.txt',comments=';',skip_header=3)
+data3 = np.genfromtxt('./stiff10/pvtDataThree.txt',comments=';',skip_header=3)
+
+pos1 = data1[9000:,0]     # position is column 1
+vel1 = data1[9000:,1]     # velocity is column 2
+time1 = data1[9000:,2]    # time is column 3
+
+pos2 = data2[9000:,0]     # position is column 1
+vel2 = data2[9000:,1]     # velocity is column 2
+time2 = data2[9000:,2]    # time is column 3
+
+pos3 = data3[9000:100000,0]     # position is column 1
+vel3 = data3[9000:100000,1]     # velocity is column 2
+time3 = data3[9000:100000,2]    # time is column 3
+
+
+plt.subplot(1,3,3)
+plt.xlabel('Time (s)')
+plt.ylabel('Position (m)')
+plt.title("Stiffness = 10")
+plt.plot(time1,pos1, 'r-', label = "Mass = 1 kg")
+plt.plot(time2,pos2, 'b-', label = "Mass = 100 kg")
+plt.plot(time3,pos3, 'g-', label = "Mass = 100000 kg")
+plt.legend()
+plt.show()
