@@ -25,7 +25,7 @@
             <!--solref="-stiffness -damping" is what gives the floor a bouncy property. Both of these 
             quantites can be tweaked but must remain negative or 0 for the program to run properly-->
             
-            <geom condim="3" mass="1" size="5.0 5.0 5.0" rgba="0 1 0 1" type="box" solref="-10 -40"/>
+            <geom condim="3" mass="1" size="5.0 5.0 5.0" rgba="0 1 0 1" type="box" solref="-50 -40"/>
             
             <!--Similar to a graph of a controller (it basically is a controller, actually), a lower stiffness magnitude
             will lead to a higher final displacement magnitude, and a higher damping magnitude will lead to a smaller overshoot
