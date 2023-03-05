@@ -15,7 +15,7 @@ viewer = MjViewer(sim)
 dataTesting = True
 
 i = 0
-stepLimit = 600000	# 60 seconds
+stepLimit = 99999999999999 #600000	# 60 seconds
 posData = []
 velData = []
 timeData = []
@@ -45,8 +45,8 @@ while True:
 		if(dataTesting):
 			j = 0
 			pvt = [None] * i
-			with open('./trialData/stiff10/pvtDataThree.txt','w') as f:
-				f.write("Stiffness: -10\nDamping: -40\nMass: 1\nPosition:	Velocity:	Time:\n")
+			with open('./trialData/testing.txt','w') as f:
+				f.write("Stiffness: -100\nDamping: -100\nMass: 1\nPosition:	Velocity:	Time:\n")
 				for line in pvt[0:i + 1]:
 					f.write(f"{posData[j]}	{velData[j]}	{timeData[j]}\n")
 					j += 1
