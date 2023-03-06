@@ -22,7 +22,7 @@
         
             <geom name = "block" condim="1" size="1 1 1" type="box"/>
             <inertial pos="0 0 0" mass= "100" diaginertia='0.001666666 0.001666666 0.001666666'/>
-            <joint type="free" stiffness="0" damping="0" frictionloss="0" armature="0"/>
+            <joint name="freefall" type="free" stiffness="0" damping="0" frictionloss="0" armature="0"/>
             
         </body>
         
@@ -42,8 +42,13 @@
         
     </worldbody>
     
+    <!--Attempting to add an additional downward force to the block at its center of gravity (NOT WORKING CURRENTLY)-->
+    <actuator>
+		<motor name="block:joint" joint="freefall" gear="10 10 10 10 10 10"/>
+    </actuator>
+    
     <contact>
-	<pair geom1="floor" geom2="block" solref="-100 -100"/> <!--solimp=".9 .99 .003"-->
+	<pair geom1="floor" geom2="block" solref="-100 0"/> <!--solimp=".9 .99 .003"-->
     </contact>
     
 </mujoco>

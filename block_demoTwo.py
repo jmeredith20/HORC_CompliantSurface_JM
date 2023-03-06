@@ -14,8 +14,9 @@ sim = MjSim(model)
 viewer = MjViewer(sim)
 dataTesting = True
 
+
 i = 0
-stepLimit = 99999999999999 #600000	# 60 seconds
+stepLimit =  300000	# 60 seconds
 posData = []
 velData = []
 timeData = []
@@ -26,6 +27,7 @@ while True:
 	mass = model.body_mass[1]
 	time = sim.data.time
 	
+	#print(sim.data.xfrc_applied)
 	#print(model.body_mass[1])
 	#print(sim.data.gravity[3])
 	
@@ -45,8 +47,8 @@ while True:
 		if(dataTesting):
 			j = 0
 			pvt = [None] * i
-			with open('./trialData/testing.txt','w') as f:
-				f.write("Stiffness: -100\nDamping: -100\nMass: 1\nPosition:	Velocity:	Time:\n")
+			with open('./trialData/infiniteOscillation.txt','w') as f:
+				f.write("Stiffness: -100\nDamping: 0\nMass: 1\nPosition:	Velocity:	Time:\n")
 				for line in pvt[0:i + 1]:
 					f.write(f"{posData[j]}	{velData[j]}	{timeData[j]}\n")
 					j += 1

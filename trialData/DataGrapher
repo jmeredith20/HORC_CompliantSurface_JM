@@ -245,3 +245,17 @@ plt.savefig('DampingVariationPlots.png')
 plt.show()
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+data1 = np.genfromtxt('./infiniteOscillation.txt',comments=';',skip_header=3)
+
+pos1 = data1[:,0]     # position is column 1
+vel1 = data1[:,1]     # velocity is column 2
+time1 = data1[:,2]    # time is column 3
+
+plt.figure();
+plt.title("Stiffness = 100, Damping = 0")
+plt.plot(time1,pos1, 'g-')
+plt.ylabel('Position (m)')
+plt.xlabel('Time (s)')
+plt.savefig('InfiniteOscillationsPlot.png')
+plt.show()
